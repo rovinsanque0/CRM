@@ -1,0 +1,11 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Customers Missing Email</h1>
+    <p class="mb-4">
+      <%= link_to "All Customers", root_path, class: "button is-link is-light" %>
+      <%= link_to "Alphabetized", customers_alphabetized_path, class: "button is-info is-light" %>
+    </p>
+
+    <%= render partial: "customer", collection: @customers, as: :customer %>
+  </div>
+</section>
