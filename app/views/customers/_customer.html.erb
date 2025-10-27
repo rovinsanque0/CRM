@@ -1,0 +1,26 @@
+<%# expects local variable: customer %>
+<div class="card mb-4">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <% if customer.avatar.attached? %>
+          <%= image_tag(customer.avatar.variant(resize_to_fill: [96, 96])), class: "image is-96x96" %>
+        <% else %>
+          <figure class="image is-96x96" style="background:#f5f5f5;border-radius:8px;"></figure>
+        <% end %>
+      </div>
+      <div class="media-content">
+        <p class="title is-5"><%= customer.full_name %></p>
+        <p class="subtitle is-6">
+          <strong>Phone:</strong> <%= customer.phone_number.presence || "—" %><br>
+          <strong>Email:</strong> <%= customer.email.presence || "Missing" %>
+        </p>
+      </div>
+    </div>
+    <% if customer.notes.present? %>
+      <div class="content" style="margin-top: .75rem;">
+        <strong>Notes:</strong> <%= customer.notes %>
+      </div>
+    <% end %>
+  </div>
+</div>
